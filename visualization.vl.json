@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Microsoft Revenue Breakdown",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "values": [
+      {
+        "Product/Service Category": "Server Products & Cloud Services",
+        "Revenue": 79.97
+      },
+      {
+        "Product/Service Category": "Office Products & Cloud Services",
+        "Revenue": 48.73
+      },
+      {"Product/Service Category": "Windows", "Revenue": 21.5},
+      {"Product/Service Category": "Gaming", "Revenue": 15.46},
+      {"Product/Service Category": "LinkedIn", "Revenue": 15.14},
+      {"Product/Service Category": "Search Advertising", "Revenue": 12.2},
+      {"Product/Service Category": "Enterprise Services", "Revenue": 7.72},
+      {"Product/Service Category": "Devices", "Revenue": 5.52},
+      {"Product/Service Category": "Other", "Revenue": 5.6}
+    ]
+  },
+  "mark": {"type": "bar", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "Product/Service Category",
+      "type": "nominal",
+      "title": "Product/Service Category",
+      "axis": {"labelAngle": -45, "labelFontSize": 12, "labelPadding": 10}
+    },
+    "y": {
+      "field": "Revenue",
+      "type": "quantitative",
+      "title": "Revenue (in billions)",
+      "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    },
+    "color": {
+      "field": "Product/Service Category",
+      "type": "nominal",
+      "legend": null
+    }
+  },
+  "title": {
+    "text": "Microsoft Revenue Breakdown",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "config": {}
+}
