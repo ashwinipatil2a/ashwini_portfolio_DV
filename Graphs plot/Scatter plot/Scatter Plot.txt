@@ -1,0 +1,52 @@
+google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Brand');
+      data.addColumn('number', 'Price');
+
+      // Add your laptop dataset here
+      data.addRows([
+        ['Lenovo', 407],
+        ['Dell', 384],
+        ['HP', 448],
+        ['Asus', 523],
+        ['Razer', 579],
+        ['Microsoft', 489],
+        ['Apple', 449],
+        ['Google', 460],
+        ['Huawei', 399],
+        ['Acer', 442],
+        ['Getac', 759]
+      ]);
+
+      var options = {
+        title: 'Average Laptop Prices by Brand',
+        titleTextStyle: {
+          fontSize: 24,
+          bold: true,
+          alignment: 'center'
+        },
+        chartArea: {width: '90%', height: '70%'},
+        hAxis: {
+          title: 'Brand',
+          slantedText: false,
+          textStyle: {
+            fontSize: 12
+          }
+        },
+        vAxis: {
+          title: 'Price (USD)',
+          textStyle: {
+            fontSize: 12
+          }
+        },
+        legend: {
+          position: 'none'
+        }
+      };
+
+      var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }

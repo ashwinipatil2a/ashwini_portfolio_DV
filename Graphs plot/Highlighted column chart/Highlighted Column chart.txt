@@ -1,0 +1,62 @@
+ google.charts.load('current', {
+   packages: ['corechart']
+ });
+ google.charts.setOnLoadCallback(drawChart);
+
+ function drawChart() {
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Brand');
+   data.addColumn('number', 'Price');
+   data.addColumn({
+     type: 'string',
+     role: 'style'
+   }); // Add style role column
+
+   // Add your laptop dataset here with styles
+   data.addRows([
+     ['Lenovo', 407, ''],
+     ['Dell', 384, ''],
+     ['HP', 448, ''],
+     ['Asus', 523, ''],
+     ['Razor', 579, ''],
+     ['Microsoft', 489, ''],
+     ['Apple', 449, ''],
+     ['Google', 460, ''],
+     ['Huawei', 399, ''],
+     ['Acer', 442, ''],
+     ['Getac', 759, 'color: red'],
+   ]);
+
+   var options = {
+     title: 'Average Laptop Prices by Brand',
+     titleTextStyle: {
+       fontSize: 24,
+       bold: true,
+       alignment: 'center'
+     },
+     chartArea: {
+       width: '90%',
+       height: '70%'
+     },
+     hAxis: {
+       title: 'Brand',
+       slantedText: false,
+       showTextEvery: 1,
+       textStyle: {
+         fontSize: 12
+       }
+     },
+     vAxis: {
+       title: 'Price (USD)',
+       textStyle: {
+         fontSize: 12
+       }
+     },
+     legend: {
+       position: 'none'
+     }
+   };
+
+   var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+   chart.draw(data, options);
+ }
